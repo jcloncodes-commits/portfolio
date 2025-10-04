@@ -6,19 +6,8 @@ import fs from 'fs/promises'
 export default defineConfig({
   plugins: [react()],
   base: '/portfolio/',
-  esbuild: {
-    loader: 'jsx',
-  },
-  resolve: {
-    alias: {
-      './runtimeConfig': './runtimeConfig.browser',
-    },
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      loader: {
-        '.js': 'jsx',
-      },
-    },
+  build: {
+    outDir: 'dist', // Ensure output directory is set to 'dist'
+    sourcemap: false, // Optional: Disable sourcemaps for production
   },
 })
